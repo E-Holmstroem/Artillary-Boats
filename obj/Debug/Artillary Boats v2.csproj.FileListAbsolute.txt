@@ -1,0 +1,8 @@
+C:\Users\Erik Holmström TE21E\OneDrive - Borås Stad\Dokument\1. Skolarbete\År 2\Programering\Artillary Boats v2\bin\Debug\Artillary Boats v2.exe.config
+C:\Users\Erik Holmström TE21E\OneDrive - Borås Stad\Dokument\1. Skolarbete\År 2\Programering\Artillary Boats v2\bin\Debug\Artillary Boats v2.exe
+C:\Users\Erik Holmström TE21E\OneDrive - Borås Stad\Dokument\1. Skolarbete\År 2\Programering\Artillary Boats v2\bin\Debug\Artillary Boats v2.pdb
+C:\Users\Erik Holmström TE21E\OneDrive - Borås Stad\Dokument\1. Skolarbete\År 2\Programering\Artillary Boats v2\obj\Debug\Artillary Boats v2.csproj.AssemblyReference.cache
+C:\Users\Erik Holmström TE21E\OneDrive - Borås Stad\Dokument\1. Skolarbete\År 2\Programering\Artillary Boats v2\obj\Debug\Artillary Boats v2.csproj.SuggestedBindingRedirects.cache
+C:\Users\Erik Holmström TE21E\OneDrive - Borås Stad\Dokument\1. Skolarbete\År 2\Programering\Artillary Boats v2\obj\Debug\Artillary Boats v2.csproj.CoreCompileInputs.cache
+C:\Users\Erik Holmström TE21E\OneDrive - Borås Stad\Dokument\1. Skolarbete\År 2\Programering\Artillary Boats v2\obj\Debug\Artillary Boats v2.exe
+C:\Users\Erik Holmström TE21E\OneDrive - Borås Stad\Dokument\1. Skolarbete\År 2\Programering\Artillary Boats v2\obj\Debug\Artillary Boats v2.pdb
