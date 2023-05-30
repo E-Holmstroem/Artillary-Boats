@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
+using System.Threading;
 
 namespace Artillary_Boats_v2
 {
@@ -22,6 +24,7 @@ namespace Artillary_Boats_v2
         public int P2Wins = 0;
 
         public int Draws = 0;
+        public bool manual;
 
         public int boats = 0;
         public string sboats = "";
@@ -29,6 +32,10 @@ namespace Artillary_Boats_v2
         public string FieldLine = "";
 
         static Program Player = new Program();
+
+        public Random Random = new Random();
+
+        SoundPlayer player = new SoundPlayer("c:/");
 
         //Methods
         static void Main(string[] args)
@@ -210,16 +217,23 @@ namespace Artillary_Boats_v2
                 { FieldP1[x, y]++; Console.Clear(); }
                 else if (FieldP1[x, y] == 1)
                 {
-                    Console.Clear();
-                    Console.WriteLine("Space occupied!");
-                    Console.WriteLine();
-                    PrintField(1);
-                    Console.WriteLine();
-                    Console.WriteLine("Choose a new X Coordinate");
-                    int nx = Convert.ToInt32(Console.ReadLine()) - 1;
-                    Console.WriteLine("Choose a new Y Coordinate");
-                    int ny = Convert.ToInt32(Console.ReadLine()) - 1;
-                    Place(1, nx, ny);
+                    if (manual = false)
+                    {
+                        PlaceForThem(1);
+                    }
+                    else if (manual = true)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Space occupied!");
+                        Console.WriteLine();
+                        PrintField(1);
+                        Console.WriteLine();
+                        Console.WriteLine("Choose a new X Coordinate");
+                        int nx = Convert.ToInt32(Console.ReadLine()) - 1;
+                        Console.WriteLine("Choose a new Y Coordinate");
+                        int ny = Convert.ToInt32(Console.ReadLine()) - 1;
+                        Place(1, nx, ny);
+                    }
                 }
 
             }
@@ -229,16 +243,23 @@ namespace Artillary_Boats_v2
                 { FieldP2[x, y]++; Console.Clear(); }
                 else if (FieldP2[x, y] == 1)
                 {
-                    Console.Clear();
-                    Console.WriteLine("Space occupied!");
-                    Console.WriteLine();
-                    PrintField(2);
-                    Console.WriteLine();
-                    Console.WriteLine("Choose a new X Coordinate");
-                    int nx = Convert.ToInt32(Console.ReadLine()) - 1;
-                    Console.WriteLine("Choose a new Y Coordinate");
-                    int ny = Convert.ToInt32(Console.ReadLine()) - 1;
-                    Place(2, nx, ny);
+                    if (manual = false)
+                    {
+                        PlaceForThem(2);
+                    }
+                    else if (manual = true)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Space occupied!");
+                        Console.WriteLine();
+                        PrintField(2);
+                        Console.WriteLine();
+                        Console.WriteLine("Choose a new X Coordinate");
+                        int nx = Convert.ToInt32(Console.ReadLine()) - 1;
+                        Console.WriteLine("Choose a new Y Coordinate");
+                        int ny = Convert.ToInt32(Console.ReadLine()) - 1;
+                        Place(2, nx, ny);
+                    }
                 }
             }
         }
@@ -285,7 +306,7 @@ namespace Artillary_Boats_v2
         {
             if (p == 1)
             {
-                if (FieldP2[x, y] == 1) { FieldP2[x, y]++; HitMapP1[x, y]++; Console.Clear(); Console.WriteLine("Your shot shattered a boat!"); P1Hits++; if (P1Hits != boats) { AskToShoot(p); }; Console.Clear(); }
+                if (FieldP2[x, y] == 1) { FieldP2[x, y]++; HitMapP1[x, y]++; Console.Clear(); Console.WriteLine("Your shot shattered a boat!");  P1Hits++; if (P1Hits != boats) { AskToShoot(p); }; Console.Clear(); }
                 else if (FieldP2[x, y] == 0) { FieldP2[x, y]--; HitMapP1[x, y] = 2; Console.WriteLine("Your shot did not hit a boat!"); Console.ReadLine(); Console.Clear(); }
                 else { Console.WriteLine("Already Shot There"); Console.ReadLine(); Console.Clear(); }
             }
@@ -379,7 +400,9 @@ namespace Artillary_Boats_v2
             }
             else if (boats <= 0 || boats > 25) { Console.Clear(); Console.WriteLine("value invalid! Please try again"); Boats(); }
             else
-            { 
+            {
+                AskIfRandomBoats();
+    
                 Console.Clear();
 
                 for (int i = 0; i < boats; i++) { AskToPlace(1); }
@@ -479,6 +502,79 @@ namespace Artillary_Boats_v2
 
         }
 
+        public void AskIfRandomBoats()
+        {
+            Console.Clear();
+            Console.WriteLine("Would you like to place them yourself?");
+            Console.WriteLine("y/n");
+            string answer = Console.ReadLine().ToLower();
+            switch(answer)
+            {
+                case "y": manual = true;
+                    break;
+                case "n": manual = false; RandomBoats();
+                    break;
+                default:
+                    Console.WriteLine("Answer invalid, try again.");
+                    Console.ReadLine();
+                    AskIfRandomBoats();
+                    break;
+
+            }
+
+        }
+
+        public void RandomBoats()
+        {
+            for (int i = 0; i < boats; i++) { PlaceForThem(1); }
+            Console.Clear();
+
+            for (int i = 0; i < boats; i++) { PlaceForThem(2); }
+            Console.Clear();
+
+            Play();
+        }
+
+        public void PlaceForThem( int p )
+        {
+            if ( p == 1 )
+            {
+
+                int x;
+                int y;
+
+                y = Random.Next(4);
+                x = Random.Next(4);
+
+                if (FieldP1[x, y] == 1)
+                {
+                    PlaceForThem(1);
+                }
+
+                Place(1, x, y);
+
+            }
+
+            if ( p == 2 ) 
+            {
+
+                int x;
+                int y;
+
+                y = Random.Next(4);
+                x = Random.Next(4);
+
+                if (FieldP2[x, y] == 1)
+                {
+                    PlaceForThem(2);
+                }
+
+                Place(2, x, y);
+
+              
+            }
+
+        }
        
 
     }
