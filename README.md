@@ -2,13 +2,15 @@
 
 ## Description
 
-A simplified game made to simulate the game "Battleships". Made with the purpose of entertainment.
+A simplified game made to simulate the game "Battleships". 
+Made with the purpose of entertainment.
+Made with C#.
 
 ## Getting Started
 
 ### Dependencies
 
-* A programm which can run the file 'Artillary Boats v2-sin' (programme used while programming was Visual Studio 2022)
+* A programm which can run the file 'Program.cs' (programme used while programming was Visual Studio 2022)
 
 ### Installing
 
