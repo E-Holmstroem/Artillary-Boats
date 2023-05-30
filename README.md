@@ -8,7 +8,7 @@ A simplified game made to simulate the game "Battleships". Made with the purpose
 
 ### Dependencies
 
-* A programm which can run the file 'Artillary Boats v2-sin' (programm used while programming was Visual Studio 2022)
+* A programm which can run the file 'Artillary Boats v2-sin' (programme used while programming was Visual Studio 2022)
 
 ### Installing
 
